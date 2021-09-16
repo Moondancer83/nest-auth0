@@ -1,9 +1,9 @@
 import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
-import { Observable } from "rxjs";
 import { Reflector } from "@nestjs/core";
+import { Observable } from "rxjs";
 
 @Injectable()
-export class PermissionsGuard implements CanActivate {
+export class Auth0PermissionGuard implements CanActivate {
   constructor(private readonly reflector: Reflector) {}
 
   canActivate(

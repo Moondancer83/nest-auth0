@@ -1,10 +1,11 @@
 import { Module } from "@nestjs/common";
-import { PassportModule } from "@nestjs/passport";
+
 import { HttpStrategy } from "./http.strategy";
+import {Auth0PermissionGuard} from "./permissions.guard";
 
 @Module({
-  imports: [PassportModule.register({ defaultStrategy: "bearer" })],
-  providers: [HttpStrategy],
-  exports: [PassportModule],
+  imports: [],
+  providers: [HttpStrategy, Auth0PermissionGuard],
+  exports: [Auth0PermissionGuard],
 })
 export class Auth0Module {}
